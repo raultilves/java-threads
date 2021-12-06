@@ -3,16 +3,18 @@ package com.majadamarcial;
 import java.io.IOException;
 
 public class Corredor {
-    private int position;
-    private String s;
-    private String nombre;
+    private int position;       // Define la posicion en el circuito de forma logica
+    private String s;           // Define como se muestra en la consola la posicion de forma visual
+    private String nombre;      // Nombre del corredor
 
+    // En el constructor ...
     public Corredor(String nombre) {
-        this.position = 0;
-        this.s = "";
-        this.nombre = nombre;
+        this.position = 0;          // ... se inicializa su posicion inicial a 0
+        this.s = "";                // ... se inicializa el mensaje por consola como cadena vacia
+        this.nombre = nombre;       // ... se inicializa el nombre segun los parametros de la instancia 
     }
 
+    // Anvanza una posicion
     public synchronized void avanzar() throws InterruptedException, IOException {        
         App.clearConsole();
        
@@ -29,6 +31,7 @@ public class Corredor {
         }
     }
 
+    // Retrocede una posicion
     public synchronized void retroceder() {
         while (this.position >= 0) {
             try {
